@@ -4,7 +4,7 @@ const crypto = require('crypto') //node package for random names, numbers
 const conection = require('./database/conection') //concets with database, necessary for operations with the database
 
 //validation
-const { celebrate, Segments, Joi } = require ('celebrate')
+const { celebrate, Segments, Joi } = require('celebrate')
 
 //importing controllers(functions)
 const OngControlller = require('./controllers/OngController')
@@ -16,10 +16,10 @@ const SessionController = require('./controllers/SessionController')
 routes.get('/ongs', OngControlller.index)
 routes.post('/ongs', celebrate({
     [Segments.BODY]: Joi.object().keys({
-        name: Joi.string().required().min(3),
+        name: Joi.string().required(),
         email: Joi.string().required().email(),
-        telefone: Joi.number().required(),
-        city: Joi.string().required().length(10), 
+        phone: Joi.string().required().min(10).max(11),
+        city: Joi.string().required(), 
         uf: Joi.string().required().length(2)
     })
 }), OngControlller.create)
