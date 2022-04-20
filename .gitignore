@@ -1,2 +1,7 @@
 node_modules
+.package-lock.json
 *.sqlite
+*.lock
+*.log
+.env
+.DS_Store

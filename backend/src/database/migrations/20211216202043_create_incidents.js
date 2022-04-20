@@ -13,5 +13,9 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('ongs') //delete table
+    // return knex.schema.dropTable('ongs') //delete table
+    return knex.schema.table('incidents', function (table) {
+      table.dropForeign('ong_id');
+      knex.schema.dropTable('ongs');
+    });
 };

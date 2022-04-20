@@ -6,7 +6,8 @@ import './style.css'
 import api from '../../services/api'
 
 import heroesImg from '../../assets/heroes.png'
-import logoImg from '../../assets/logo.png'
+import logoImg from '../../assets/logo@2x.png'
+import humanitarianImg from '../../assets/humanitarian-help-animate.svg'
 
 export default function Logon() {
     const [id, setId] = useState('')
@@ -34,7 +35,7 @@ export default function Logon() {
             <section className="form">
                 <img src={logoImg} alt="be the hero" />
                 <form onSubmit={handleLogin}>
-                    <h1>Faça seu logon</h1>
+                    <h1>Faça seu login</h1>
 
                     <input 
                         placeholder="Sua ID"
@@ -48,8 +49,10 @@ export default function Logon() {
                     </Link>
                 </form>
             </section>
-
-            <img src ={heroesImg} alt = "heroes" />
+            <div>
+                {/* <img src={heroesImg} alt="heroes" /> */}
+                <img src={humanitarianImg} alt="humanitarian" />
+            </div>
         </div>
         
     )

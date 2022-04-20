@@ -1,8 +1,6 @@
 .register-container {
-    width: 100%;
-    max-width: 1120px ;
+    width: 100vw;
     height: 100vh;
-    margin: 0 auto;
     
     display: flex;
     align-items: center;
@@ -11,7 +9,6 @@
 
 .register-container .content {
     width: 100%;
-    padding: 96px;
     background: #f0f0f9;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
     
@@ -20,13 +17,32 @@
     justify-content: space-between;
 }
 
+.register-container .content .banner{
+    width: 50%;
+    height: 100vh;
+}
+
+.register-container .content .banner img{
+    width: 90%;
+    margin-left: 10%;
+}
+
+.register-container .content .register{
+    width: 50%;
+    padding-left: 10%;
+}
+
 .register-container .content section{
     width: 100%;
     max-width: 380px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 20px;
+    margin-bottom: 25px;
 }
 
 .register-container .content section h1 {
-    margin: 64px, 0, 32px;
+    margin-top: 15px;
     font-size: 32px;
 }
 
@@ -43,6 +59,12 @@
 
 .register-container .content form input{
     margin-top: 8px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 0;
+    padding: 0 24px;
+    font-size: 16px;
+    color: #6C6C80;
 }
 
 .register-container .content form .input-group{
@@ -51,6 +73,11 @@
 
 .register-container .content form .input-group input + input{
     margin-left: 8px;
+}
+
+.register-container .back-link{
+    margin-left: 35px;
+    margin-top: 30px;
 }
 
 

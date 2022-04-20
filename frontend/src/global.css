@@ -60,7 +60,7 @@ form textarea{
 }
 
 .button:hover {
-    filter: brightness(90%);
+    background:  #a1162d;
 }
 
 .back-link {
@@ -76,6 +76,7 @@ form textarea{
 
 .back-link svg {
     margin: 8px;
+    margin-left: 15%;
 }
 .back-link:hover {
     opacity: 0.8;
