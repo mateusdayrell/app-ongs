@@ -16,6 +16,9 @@ export default function Register() {
      const [phone, setPhone] = useState('')
      const [city, setCity] = useState('')
      const [uf, setUf] = useState('')
+     const [ongUser, setOngUser] = useState('#e02031')
+     const [normalUser, setNormalUser] = useState('#757575')
+     const [userColor, setUserColor] = useState('#e02031')
 
      const navigate = useNavigate()
     
@@ -42,6 +45,18 @@ export default function Register() {
             alert('Erro no cadastro, tente novamente.')
         }
     }
+
+    const setUserType = (type) => {
+        if(ongUser === '#e02031'){
+            setOngUser('#757575')
+            setNormalUser('#e76357')
+            setUserColor('#e76357')
+        } else{
+            setOngUser('#e02031')
+            setNormalUser('#757575')
+            setUserColor('#e02031')
+        }
+    }
     
     return (
         <div className="register-container">
@@ -51,13 +66,21 @@ export default function Register() {
                 </div>
                 <div className="register">
                     <section>
-                        <img src={LogoImg} alt="Logo" />   
-                        <h1>Cadastro</h1>
-                        {/* <p>Faça o seu cadastro!</p> */}
-                        {/* <Link className="back-link" to="/">
-                            <FiArrowLeft size={16} color = "#e02031"/>    
-                            Nao tenho registro
-                        </Link> */}
+                        <h1>Cadastrar: </h1>
+
+                        <div className="inline">
+                            <h2 style={{color: ongUser}}>ONG</h2>
+                            <label className="switch">
+                                <input 
+                                    type="checkbox"
+                                    onChange={e => setUserType()}
+                                />
+                                <span className="slider round"/>
+                            </label>
+                            <h2 style={{color: normalUser}}>Usuário</h2>
+                        </div>
+
+                
                     </section> 
                     <form onSubmit={handleRegister}>
                         <input 
@@ -85,12 +108,13 @@ export default function Register() {
                             value={uf}
                             onChange={e => setUf(e.target.value)} />
                         </div>
-                        <button className="button" type="submit">Cadastrar</button>
+                        <button className="button" type="submit" style={{backgroundColor: userColor}}>Cadastrar</button>
                     </form>
                     <Link className="back-link" to="/">
-                            <FiArrowLeft size={16} color = "#e02031"/>    
+                            <FiArrowLeft size={16} color = {userColor}/>    
                             Voltar à página de login
                         </Link>
+                   
                 </div>
             </div>
         </div>

@@ -29,7 +29,7 @@ module.exports = {
         const {title, description, value} = request.body
         const ong_id = request.headers.authorization
 
-        const [id] = await conection('incidents').insert({
+        const id = await conection('incidents').insert({
             title, 
             description, 
             value,
