@@ -2,10 +2,10 @@ const conection = require('../database/conection')
 
 module.exports = {
     async index(request, response){
-        const ong_id = request.headers.authorization
+        const ong = request.headers.authorization
     
     const incidents = await conection('incidents')
-    .where('ong_id', ong_id)
+    .where('ong', ong)
     .select('*')
 
     return response.json(incidents)
