@@ -41,10 +41,13 @@
     max-width: 450px;
 }
 
-.new-incident-container .content form textarea{
+.new-incident-container .content form textarea,
+.new-incident-container .content form input {
     margin-top: 8px;
+    padding: 15px;
 }
 
-.new-incident-container .content form input{
-    margin-top: 8px;
+.new-incident-container .content form input::placeholder,
+.new-incident-container .content form textarea::placeholder {
+    margin: 15px !important;
 }
