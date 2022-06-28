@@ -9,7 +9,7 @@ module.exports = {
         console.log(count)
         
         const incidents = await conection('incidents')
-            .join('ongs ', 'ong_id', '=', 'incidents.ong_id')
+            .join('ongs ', 'ong', '=', 'incidents.ong')
             .limit(5) //paginacao
             .offset((page - 1) * 5) //paginacao
             .select([
@@ -27,13 +27,15 @@ module.exports = {
     
     async create(request,response) {
         const {title, description, value} = request.body
-        const ong_id = request.headers.authorization
-
+        const ong = request.headers.authorization
+        const status = 'ativo'
+        
         const id = await conection('incidents').insert({
             title, 
             description, 
             value,
-            ong_id
+            ong,
+            status
         })
 
         return response.json({ id })
@@ -41,14 +43,14 @@ module.exports = {
 
     async delete(request, response){
         const { id } = request.params
-        const ong_id = request.headers.authorization
+        const ong = request.headers.authorization
 
         const incident = await conection('incidents')
             .where('id', id)
-            .select('ong_id')
+            .select('ong')
             .first()
 
-        if(incident.ong_id !== ong_id){
+        if(incident.ong !== ong){
 
             return response.status(401).json({ error: 'Operation not permited.'})
         }
