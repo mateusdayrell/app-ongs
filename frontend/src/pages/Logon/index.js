@@ -5,12 +5,13 @@ import './style.css'
 
 import api from '../../services/api'
 
-import heroesImg from '../../assets/heroes.png'
 import logoImg from '../../assets/logo@2x.png'
 import humanitarianImg from '../../assets/humanitarian-help-animate.svg'
 
 export default function Logon() {
     const [id, setId] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const navigate = useNavigate()
 
@@ -37,10 +38,18 @@ export default function Logon() {
                 <form onSubmit={handleLogin}>
                     <h1>Faça seu login</h1>
 
-                    <input 
+                    {/* <input 
                         placeholder="Sua ID"
                         value={id}
-                        onChange={e => setId(e.target.value)} />
+                        onChange={e => setId(e.target.value)} /> */}
+                    <input 
+                        placeholder="Email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)} />
+                    <input 
+                        placeholder="Senha"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)} />
                     <button className="button" type="submit">Entrar</button>
 
                     <Link className="back-link" to="/register">
@@ -50,7 +59,7 @@ export default function Logon() {
                 </form>
             </section>
             <div>
-                {/* <img src={heroesImg} alt="heroes" /> */}
+                
                 <img src={humanitarianImg} alt="humanitarian" />
             </div>
         </div>
