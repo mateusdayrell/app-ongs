@@ -3,22 +3,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { FiArrowLeft } from 'react-icons/fi'
 
 import './style.css'
-import LogoImg from '../../assets/logo@2x.png'
 import balloons from '../../assets/balloons-animate.svg'
 
 import api from '../../services/api'
 
-
-
 export default function Register() {
      const [name, setName] = useState('')
      const [email, setEmail] = useState('')
+     const [password, setPassword] = useState('')
+     const [document, setDocument] = useState('')
+     const [field, setField] = useState('')
      const [phone, setPhone] = useState('')
      const [city, setCity] = useState('')
      const [uf, setUf] = useState('')
      const [ongUser, setOngUser] = useState('#e02031')
      const [normalUser, setNormalUser] = useState('#757575')
-     const [userColor, setUserColor] = useState('#e02031')
 
      const navigate = useNavigate()
     
@@ -28,6 +27,9 @@ export default function Register() {
         const data = {
             name,
             email,
+            password,
+            document,
+            field,
             phone,
             city,
             uf,
@@ -49,17 +51,15 @@ export default function Register() {
     const setUserType = (type) => {
         if(ongUser === '#e02031'){
             setOngUser('#757575')
-            setNormalUser('#e76357')
-            setUserColor('#e76357')
+            setNormalUser('#e02031')
         } else{
             setOngUser('#e02031')
             setNormalUser('#757575')
-            setUserColor('#e02031')
         }
     }
     
     return (
-        <div className="register-container">
+        <div className="register-container"> 
             <div className="content">
                 <div className="banner">
                     <img src={balloons} alt="ballons" />
@@ -79,8 +79,6 @@ export default function Register() {
                             </label>
                             <h2 style={{color: normalUser}}>Usuário</h2>
                         </div>
-
-                
                     </section> 
                     <form onSubmit={handleRegister}>
                         <input 
@@ -92,6 +90,21 @@ export default function Register() {
                             placeholder="E-mail"
                             value={email}
                             onChange={e => setEmail(e.target.value)} />
+                        <input 
+                            type="password" 
+                            placeholder="Senha"
+                            value={password}
+                            onChange={e => setPassword(e.target.value)} />
+                        <input 
+                            type="text" 
+                            placeholder="Documento"
+                            value={document}
+                            onChange={e => setDocument(e.target.value)} />
+                        <input 
+                            type="text" 
+                            placeholder="Campo"
+                            value={field}
+                            onChange={e => setField(e.target.value)} />
                         <input 
                             placeholder="Telefone"
                             value={phone}
@@ -108,15 +121,14 @@ export default function Register() {
                             value={uf}
                             onChange={e => setUf(e.target.value)} />
                         </div>
-                        <button className="button" type="submit" style={{backgroundColor: userColor}}>Cadastrar</button>
+                        <button className="button" type="submit" style={{backgroundColor: '#e02031'}}>Cadastrar</button>
                     </form>
                     <Link className="back-link" to="/">
-                            <FiArrowLeft size={16} color = {userColor}/>    
-                            Voltar à página de login
-                        </Link>
-                   
+                        <FiArrowLeft size={16} color = {'#e02031'}/>    
+                        Voltar à página de login
+                    </Link>                   
                 </div>
             </div>
         </div>
-        )
+    )
 }
