@@ -1,12 +1,16 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('ongs', function (table) {
-        table.string('id').primary();
+        table.increments('id').primary();
         table.string('name').notNullabe;
         table.string('email').notNullabe;
+        table.string('password').notNullabe;
+        table.string('document', 14).notNullabe;
+        table.string('field').notNullabe;
         table.string('phone').notNullabe;
         table.string('city').notNullabe;
         table.string('uf', 2).notNullabe;
+        table.string('hash').notNull().defaultTo('DEFA');
         table.timestamps();
       })
 };

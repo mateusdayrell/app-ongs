@@ -1,23 +1,19 @@
 
 exports.up = function(knex) {
   return knex.schema.createTable('incidents', function (table) {
-    table.increments();
-    //table.string('id').primary();
+    // table.increments();
+    table.increments('id').primary();
     table.string('title').notNullable();
     table.string('description').notNullable();
     table.decimal('value').notNullable();
     table.string('status').notNullable();
 
-    table.string('ong_id').notNullable();
+    table.bigInteger('ong').notNullable();
     //gets the ong id from ongs table
-    table.foreign('ong_id').references('id').inTable('ongs');
+    table.foreign('ong').references('id').inTable('ongs');
   })
 };
 
 exports.down = function(knex) {
-    // return knex.schema.dropTable('ongs') //delete table
-    return knex.schema.table('incidents', function (table) {
-      table.dropForeign('ong_id');
-      knex.schema.dropTable('incidents');
-    });
+    return knex.schema.dropTable('incidents');
 };
