@@ -1,12 +1,16 @@
 # app-ongs
-Restful API to help NGOs or find help for your NGO inpired on [RocketSeat](https://www.rocketseat.com.br/) project: Semana Oministack
+Restful API to help NGOs or find help for your NGO inpired on [RocketSeat's](https://www.rocketseat.com.br/) project "Semana Oministack". <br>
+Technologies you will find on this project: [React](https://reactjs.org/), [React Native](https://reactnative.dev/) and [NodeJs](https://nodejs.org/en/) <br>
 
-## Clone repository
+
+## Project setup <br>
+
+### Clone repository
 ```
 https://github.com/mateusdayrell/app-ongs.git
 ```
 
-## Install dependencies
+### Install dependencies
 ```
 npm install
 ```
